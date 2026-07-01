@@ -1,0 +1,20 @@
+import tkinter
+from tkinter import *
+import tkinter as tk
+root = Tk()
+menu = Menu(root)
+root.config(menu=menu)
+filemenu = Menu(menu)
+menu.add_cascade(label="File", menu=filemenu)
+filemenu.add_command(label="New")
+filemenu.add_separator()
+filemenu.add_command(label="Open")
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=root.quit)
+helpmenu = Menu(menu)
+menu.add_cascade(label="Help", menu=helpmenu)
+helpmenu.add_command(label="About")
+v = IntVar()
+Radiobutton(root, text="Option 1", variable=v, value=1).pack(anchor=W)
+Radiobutton(root, text="Option 2", variable=v, value=2).pack(anchor=W)
+root.mainloop()
