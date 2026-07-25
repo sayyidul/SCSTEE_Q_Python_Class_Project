@@ -9,8 +9,8 @@ def enter_data():
 
     if accepted == "Accept":
         #user info
-        firstname = first_name_label.get()
-        lastname = last_name_label.get()
+        firstname = first_name_entry.get() #revisi _lebel menjadi _entry
+        lastname = last_name_entry.get() #revisi _lebel menjadi _entry
 
         if firstname and lastname:
             title = title_combobox.get()
@@ -29,9 +29,9 @@ def enter_data():
             print("--------------------------------------------")
 
             #pembuatan file excel untuk penampungan record data
-            filepath = "C:\Users\Admin\OneDrive\Documents\SCSTEE_Q"
+            filepath = r"C:\Users\Admin\OneDrive\Documents\SCSTEE_Q2.xlsx" #revisi
             if not os.path.exists(filepath):
-                workbook = openpyxl.workbook()
+                workbook = openpyxl.Workbook() # revisi
                 sheet = workbook.active
                 heading = ["First Name", "Last Name", "Title", "Age", "Nationality", "# Courses", "# Semesters", "Registration status"]
                 sheet.append(heading)
@@ -61,10 +61,10 @@ first_name_label.grid(row=0, column=0)
 last_name_label = tkinter.Label(user_info_frame, text="Last Name")
 last_name_label.grid(row=0, column=1)
 
-first_name_label = tkinter.Entry(user_info_frame)
-last_name_label =tkinter.Entry(user_info_frame)
-first_name_label.grid(row=1, column=0)
-last_name_label.grid(row=1, column=1)
+first_name_entry = tkinter.Entry(user_info_frame) #revisi label menjadi entry
+last_name_entry = tkinter.Entry(user_info_frame)
+first_name_entry.grid(row=1, column=0)
+last_name_entry.grid(row=1, column=1)
 
 title_label = tkinter.Label(user_info_frame, text="Title")
 title_combobox = ttk.Combobox(user_info_frame, values=["Apa", "Mr", "Ms", "Dr", "Prof"])
@@ -94,12 +94,12 @@ registered_label.grid(row=0, column=0)
 registered_check.grid(row=1, column=0)
 
 numcourses_label = tkinter.Label(course_frame, text= "# Completed Courses")
-numcourses_spinbox = tkinter.Spinbox(course_frame, from_=0, to= 'infinity')
+numcourses_spinbox = tkinter.Spinbox(course_frame, from_=0, to= 50)
 numcourses_label.grid(row=0, column=1)
 numcourses_spinbox.grid(row=1, column=1)
 
 numsemesters_label = tkinter.Label(course_frame, text= "# Semester")
-numsemesters_spinbox = tkinter.Spinbox(course_frame, from_=0, to= 'infinity')
+numsemesters_spinbox = tkinter.Spinbox(course_frame, from_=0, to= '20')
 numsemesters_label.grid(row=0, column=2)
 numsemesters_spinbox.grid(row=1, column=2)
 
@@ -114,7 +114,7 @@ terms_check = tkinter.Checkbutton(terms_frame, text="I accept the terms and cond
 terms_check.grid(row=0, column=0)
 
 #button Accept
-button = tkinter.Button(frame, text="Enter Data", command="")
+button = tkinter.Button(frame, text="Enter Data", command=enter_data) #command="enter_data"
 button.grid(row=3, column=0, sticky="news", padx=20, pady=10)
 
 
