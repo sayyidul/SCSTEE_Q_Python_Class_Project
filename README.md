@@ -1,1 +1,1 @@
-kumpulan projek materi kelas python deengan kode kelas SCSTEE-Q
+kumpulan projek materi kelas python dengan kode kelas SCSTEE-Q by Educourse.id
