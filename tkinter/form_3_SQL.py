@@ -46,9 +46,7 @@ def enter_data():
             cursor.execute(data_insert_query, data_insert_tuple)
             conn.commit()
             conn.close()
-
-            
-                
+    
         else:
             tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
     else:
